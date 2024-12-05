@@ -79,7 +79,7 @@ Este proyecto tiene las siguientes dependencias para que puedas ejecutarlo local
 ## 🌍 **Estructura del Proyecto**
 
 Este proyecto está dividido en las siguientes carpetas y archivos:
-
+```bash
 /diagnostico-depresion-estudiantes
 ├── /static
 │   ├── /css
@@ -92,7 +92,7 @@ Este proyecto está dividido en las siguientes carpetas y archivos:
 ├── app.py                     # Código backend en Flask
 ├── requirements.txt           # Archivo de dependencias
 └── README.md                  # Este archivo README
-
+```
 
 ---
 
