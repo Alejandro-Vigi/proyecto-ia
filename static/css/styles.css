@@ -1,0 +1,370 @@
+:root {
+    --blanco: #ffffff; /* Color blanco */
+    --oscuro: #212121; /* Color gris oscuro */
+    --primario: #FFC107; /* Color amarillo (primario) */
+    --secundario: #0097A7; /* Color azul claro (secundario) */
+    --gris: #757575; /* Color gris medio */
+    --grisClaro: #DFE9FE; /* Color gris claro */
+    --azulClaro: #4a9dec; /* Color azul claro */
+    --azulOscuroHover: #1d77cb; /* Color azul oscuro para hover */
+    --azul: royalblue; /* Color azul real */
+    --azulOscuro: rgb(56, 90, 194); /* Color azul oscuro */
+    --naranja: #FF7F00; /* Color naranja */
+    --naranjaOscuro: #e66a00; /* Color naranja oscuro */
+    --fondo: #f8f8f8; /* Color de fondo gris claro */
+    --fuente-principal: 3.8rem; /* Tamaño de fuente principal */
+    --fondoGris: #eaeaea; /* Color de fondo gris claro */
+}
+
+/* Globales */
+html {
+    font-size: 62.5%; /* Define el tamaño de fuente base: 1 rem = 10px (62.5% de 16px) */
+    box-sizing: border-box; /* Establece el modelo de caja para todos los elementos */
+    /* scroll-snap-type: y mandatory; */ /* Comentado: Desplazamiento con "snap" vertical obligatorio */
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* Hereda el modelo de caja de los elementos */
+}
+body {    
+    font-size: 16px; /* Establece el tamaño de la fuente base en píxeles (16px = 1 rem) */
+    font-family: 'Krub', sans-serif; /* Define la fuente 'Krub' para el cuerpo */
+    background: var(--fondo); /* Establece el color de fondo del cuerpo utilizando la variable */
+    height: 100%; /* La altura del cuerpo ocupa el 100% del espacio disponible */
+    padding: 2rem; /* Agrega un padding de 2rem alrededor del contenido */
+}
+
+.contenedor{
+    max-width: 120rem; /* Define el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.sombra{
+    -webkit-box-shadow: 10px 5px 15px 5px rgba(112,112,112,0.48); /* Sombra para WebKit (Safari, Chrome) */
+    -moz-box-shadow: 10px 5px 15px 5px rgba(112,112,112,0.48); /* Sombra para Firefox */
+    box-shadow: 10px 5px 15px 5px rgba(112,112,112,0.48); /* Sombra estándar para otros navegadores */
+    background-color: var(--blanco); /* Fondo blanco para el elemento */
+    padding: 1rem; /* Padding de 1rem alrededor del contenido */
+    border-radius: 1rem; /* Bordes redondeados de 1rem */
+    margin: auto auto; /* Centra el elemento en su contenedor */
+}
+
+.boton{
+    background-color: var(--azulClaro); /* Color de fondo azul claro para el botón */
+    color: var(--blanco); /* Color del texto blanco */
+    padding: 1rem; /* Padding de 1rem alrededor del botón */
+    margin-top: 0.5rem; /* Margen superior de 0.5rem */
+    font-size: 2rem; /* Tamaño de la fuente en el botón */
+    text-decoration: none; /* Elimina la decoración del texto (subrayado) */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-weight: bold; /* Aplica negrita al texto */
+    border-radius: 1rem; /* Bordes redondeados de 1rem */
+    width: 90%; /* El botón ocupa el 90% del ancho disponible */
+    text-align: center; /* Centra el texto dentro del botón */
+    border: none; /* Elimina el borde del botón */
+    transform: .3s ease; /* Aplica una transición suave de 0.3s en la transformación */
+}
+
+.boton:hover {
+    background-color: var(--azulOscuroHover); /* Cambia el color de fondo a azul oscuro al pasar el cursor */
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto; /* En pantallas grandes, el botón tiene un ancho automático */
+    }
+}
+
+.boton:hover {
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+}
+
+/* Tipografía */
+h1{
+    font-size: 3.8rem; /* Tamaño de fuente para los títulos h1 */
+}
+
+h2 {
+    font-size: 2.8rem; /* Tamaño de fuente para los títulos h2 */
+}
+
+h3 {
+    font-size: 1.8rem; /* Tamaño de fuente para los títulos h3 */
+}
+
+h1,h2,h3 {
+    text-align: center; /* Centra los títulos h1, h2 y h3 */
+}
+
+/* Títulos */
+.titulo span {
+    font-size: 2rem; /* Tamaño de fuente de los elementos span dentro de la clase 'titulo' */
+}
+
+/* Utilidades */
+.w-sm-100{
+    width: 100%; /* Aplica un ancho del 100% al elemento */
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto; /* En pantallas grandes, el ancho es automático */
+    }
+}
+
+.flex{
+    display: flex; /* Establece el contenedor como un flexbox */
+}
+
+.alinear-derecha {
+    justify-content: flex-end; /* Alinea los elementos dentro del contenedor flex hacia la derecha */
+}
+
+/* Scroll snap
+.servicio,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center; /* Alinea los elementos en el centro para el desplazamiento con "snap" */
+    scroll-snap-stop: always; /* Detiene el desplazamiento en ese punto */
+}
+*/
+
+/* Contacto */
+.formulario{
+    width: 100%; /* El formulario ocupa el 100% del ancho disponible */
+    margin: 0 auto; /* Centra el formulario en su contenedor */
+    padding: 2rem; /* Agrega un padding de 2rem alrededor del formulario */
+    border-radius: 1rem; /* Bordes redondeados de 1rem */
+    color: var(--oscuro); /* Establece el color del texto en oscuro */
+}
+
+.formulario fieldset {
+    border: none; /* Elimina el borde del elemento 'fieldset' */
+}
+
+.formulario legend{
+    text-align: center; /* Centra el texto dentro del legend */
+    font-size: 1.8rem; /* Tamaño de fuente para el legend */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-weight: 700; /* Aplica un peso de fuente en negrita */
+    margin-bottom: 2rem; /* Agrega un margen inferior de 2rem */
+    color: var(--oscuro); /* Color del texto en oscuro */
+    margin-bottom: 5rem; /* Aumenta el margen inferior a 5rem */
+}
+
+/* Inputs */
+.input {
+    border: 2px solid transparent; /* Define un borde transparente por defecto */
+    height: 2.5em; /* Establece la altura del input */
+    padding-left: 0.8em; /* Agrega un padding a la izquierda */
+    outline: none; /* Elimina el contorno por defecto */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+    background-color: var(--fondoGris); /* Establece el fondo gris claro */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    transition: all 0.5s; /* Aplica una transición suave de 0.5s en todos los cambios */
+    margin-top: 1rem; /* Agrega un margen superior de 1rem */
+}
+
+.input:hover,
+.input:focus {
+    border: 2px solid var(--azulClaro); /* Cambia el borde al azul claro cuando el input está enfocado o se pasa el cursor */
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%); /* Agrega una sombra azul clara */
+    background-color: var(--blanco); /* Cambia el fondo a blanco */
+}
+
+/* Selecter */
+.selecter {
+    margin-top: 1rem; /* Margen superior de 1rem */
+    height: 2.5em; /* Establece la altura del select */
+    width: 100%; /* El select ocupa el 100% del ancho disponible */
+    background-color: var(--fondoGris); /* Fondo gris claro */
+    color: var(--oscuro); /* Color de texto oscuro */
+    border: none; /* Elimina el borde del select */
+    border-radius: 0.375rem; /* Bordes redondeados de 0.375rem */
+    padding: 0.5rem; /* Padding de 0.5rem */
+    margin-bottom: 1rem; /* Margen inferior de 1rem */
+    transition: all 150ms ease-in-out; /* Transición suave de 150ms */
+}
+
+/* Estilo para el <select> cuando está enfocado */
+.selecter:focus {
+    border: 1px solid var(--azulClaro); /* Cambia el borde al azul claro cuando está enfocado */
+    background-color: var(--fondo); /* Cambia el fondo a blanco */
+    outline: none; /* Elimina el contorno por defecto */
+    border-radius: 0.375rem; /* Bordes redondeados */
+    box-shadow: 0px 0px 0px 2px rgb(74, 157, 236, 20%); /* Sombra azul clara */
+}
+
+/* Estilo para el <option> */
+.selecter option {
+    background-color: var(--blanco); /* Fondo blanco para las opciones */
+    color: var(--oscuro); /* Texto oscuro para las opciones */
+    padding: 0.5rem; /* Padding de 0.5rem */
+}
+
+/* Contenedor campo */
+.container-campo {
+    display: grid; /* Establece el contenedor como un grid */
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas de igual tamaño */
+    gap: 3rem; /* Espacio de 3rem entre los elementos */
+}
+
+/* En pantallas más pequeñas (menos de 768px), cambia a una columna */
+@media (max-width: 768px) {
+    .container-campo {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+
+    input, select {
+        margin: 0; /* Elimina márgenes en los campos input y select */
+    }
+}
+
+/* Contenedor de campos con dos columnas */
+.container-campo-dos {
+    display: grid; /* Establece un diseño de grid */
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 3rem; /* Espacio de 3rem entre las columnas */
+    margin-top: 1rem; /* Margen superior de 1rem */
+}
+
+/* Ajusta el margen inferior de los campos */
+.campo {
+    margin-bottom: 1rem; /* Margen inferior de 1rem para separar los campos */
+}
+
+/* En pantallas más pequeñas (menos de 768px), cambia a una columna */
+@media (max-width: 768px) {
+    .container-campo-dos {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+        gap: 0; /* Elimina el espacio entre columnas */
+        margin-top: 0; /* Elimina el margen superior */
+    }
+
+    .container-campo{
+        margin-top: 0rem; /* Elimina el margen superior del contenedor */
+        gap: 0; /* Elimina el espacio entre los campos */
+    }
+
+    .campo{
+        margin-top: 0; /* Elimina el margen superior de los campos */
+    }
+}
+
+/* Contenedor de campos con tres columnas */
+.container-campo-tres {
+    display: grid; /* Establece un diseño de grid */
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas de igual tamaño */
+    gap: 3rem; /* Espacio de 3rem entre las columnas */
+}
+
+/* Para pantallas menores de 478px, también 1 columna */
+@media (max-width: 768px) {
+    .container-campo-tres {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+    .container-campo-tres {
+        margin-top: 0rem; /* Elimina el margen superior */
+        gap: 0; /* Elimina el espacio entre los campos */
+    }
+}
+
+/* Estilos para las etiquetas de los campos */
+.campo label {
+    color: var(--oscuro); /* Color de texto oscuro */
+    font-weight: bold; /* Aplica negrita al texto */
+    margin-bottom: .5rem; /* Agrega un margen inferior de 0.5rem */
+    display: block; /* Muestra las etiquetas como bloques */
+}
+
+/* Estilo para los inputs de texto */
+.input-text {
+    width: 100%; /* El input ocupa el 100% del ancho disponible */
+    border: none; /* Elimina el borde del input */
+    padding: 1.5rem; /* Agrega un padding de 1.5rem dentro del input */
+    border-radius: .5rem; /* Bordes redondeados de 0.5rem */
+}
+
+/* Estilo para el pie de página */
+.footer {
+    margin: 2rem 0rem 2rem 0rem; /* Márgenes arriba y abajo de 2rem */
+    text-align: center; /* Centra el contenido del pie de página */
+}
+
+/* Estilos para las alertas personalizadas */
+.custom-popup {
+    border-radius: 16px; /* Bordes redondeados de 16px */
+    font-size: 18px; /* Tamaño de fuente más grande */
+}
+
+/* Estilos específicos para las alertas de SweetAlert */
+.swal2-popup {
+    font-size: 22px; /* Tamaño de fuente para el texto de la alerta */
+}
+
+.swal2-title {
+    font-size: 24px; /* Tamaño de fuente para el título de la alerta */
+}
+
+.swal2-confirm {
+    font-size: 18px; /* Tamaño de fuente para el botón de confirmación */
+}
+
+/* Botón de confirmación personalizado */
+.custom-confirm-button {
+    background-color: #4a9dec; /* Color de fondo azul para el botón */
+    color: white; /* Texto blanco */
+    font-size: 18px; /* Tamaño de fuente para el botón */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    padding: 10px 20px; /* Padding de 10px arriba/abajo y 20px a los lados */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s; /* Transiciones suaves */
+}
+
+/* Efectos al pasar el cursor sobre el botón */
+.custom-confirm-button:hover {
+    background-color: #3085d6; /* Color de fondo más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Efecto de escala (crece ligeramente) */
+}
+
+/* Estilo para el botón "Obtener ayuda" */
+.custom-confirm-button.cancelButton {
+    background-color: #FF7F00; /* Fondo naranja para el botón */
+    border-color: #FF7F00; /* Borde naranja */
+    color: white; /* Texto blanco */
+}
+
+.custom-confirm-button.cancelButton:hover {
+    background-color: #FF5e00; /* Fondo naranja oscuro al pasar el cursor */
+    border-color: #FF5e00; /* Borde naranja oscuro al pasar el cursor */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .custom-popup {
+        font-size: 14px; /* Fuente más pequeña en pantallas pequeñas */
+    }
+
+    .swal2-popup {
+        font-size: 16px; /* Tamaño de fuente más pequeño en el popup */
+    }
+
+    .swal2-title {
+        font-size: 18px; /* Título más pequeño en pantallas pequeñas */
+    }
+
+    .swal2-confirm {
+        font-size: 14px; /* Botón de confirmación con texto más pequeño */
+    }
+
+    /* Ajusta el ancho del popup en pantallas pequeñas */
+    .swal2-popup {
+        width: 90% !important; /* El popup ocupa el 90% del ancho de la pantalla */
+        max-width: 350px; /* Establece un ancho máximo de 350px */
+    }
+
+    /* Ajusta el padding del popup en pantallas pequeñas */
+    .swal2-popup {
+        padding: 1em; /* Reduce el padding dentro del popup */
+    }
+}

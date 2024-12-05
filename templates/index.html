@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Depresión en Estudiantes</title>
+    
+    <!-- Enlace a los archivos CSS -->
+    <!-- Normaliza el estilo entre los diferentes navegadores -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <!-- Estilos personalizados de la página -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Enlace a Google Fonts para cargar la tipografía 'Krub' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabecera del sitio -->
+    <header>
+        <h1 class="titulo">Diagnóstico de Depresión en Estudiantes</h1> <!-- Título principal de la página -->
+    </header>
+  
+    <main class="contenedor sombra"> <!-- Contenedor principal de la página con sombra para efectos visuales -->
+        <section>
+            <!-- Formulario para la prueba de diagnóstico -->
+            <form class="formulario" action="/predecir" method="POST">
+                <fieldset>
+                    <!-- Leyenda que explica el propósito del formulario -->
+                    <legend>Realiza tu prueba llenando todos los campos</legend>
+
+                    <!-- Contenedor de campos de entrada -->
+                    <div class="container-campo">
+                        <div class="campo">
+                            <label>Edad:</label>
+                            <!-- Campo de edad -->
+                            <input class="input-text input" type="number" name="age" placeholder="Ingresa tu edad" required min="4" max="100">
+                        </div>
+
+                        <div class="campo">
+                            <label>Sexo:</label>
+                            <!-- Campo de selección de sexo -->
+                            <select class="selecter" name="gender" required>
+                                <option value="" selected disabled>Seleccione una opción</option>
+                                <option value="Male">Hombre</option>
+                                <option value="Female">Mujer</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label>Presión Académica:</label>
+                            <!-- Campo para seleccionar la presión académica -->
+                            <input class="input-text input" type="number" name="academic_pressure" placeholder="1-10 (1: poca, 10: demasiada)" required min="1" max="10">
+                        </div>
+                    </div>
+
+                    <!-- Contenedor de campos para promedio de calificaciones, horas de estudio y satisfacción -->
+                    <div class="container-campo-tres">
+                        <div class="campo">
+                            <label>Promedio de Calificaciones:</label>
+                            <input class="input-text input" type="number" name="cgpa" placeholder="0 a 10" required min="0" max="10" step="any">
+                        </div>
+
+                        <div class="campo">
+                            <label>Horas de estudio/trabajo al día:</label>
+                            <input class="input-text input" type="number" name="study_hours" placeholder="Ingresa la cantidad de horas diarias" required min="1" max="24">
+                        </div>
+
+                        <div class="campo">
+                            <label>Satisfacción de estudios:</label>
+                            <input class="input-text input" type="number" name="study_satisfaction" placeholder="1-10 (1: poca, 10: demasiada)" required min="1" max="10">
+                        </div>
+                    </div>
+
+                    <!-- Contenedor de campos de estrés financiero y duración del sueño -->
+                    <div class="container-campo-dos">
+                        <div class="campo">
+                            <label>Estrés Financiero:</label>
+                            <input class="input-text input" type="number" name="financial_stress" placeholder="1-10 (1: poca, 10: demasiada)" required min="1" max="10">
+                        </div>
+
+                        <div class="campo">
+                            <label>Duración del Sueño:</label>
+                            <!-- Selección de opciones para la duración del sueño -->
+                            <select class="selecter" name="sleep_duration" required>
+                                <option value="" selected disabled>Seleccione una opción</option>
+                                <option value="7-8 hours">7-8 horas</option>
+                                <option value="More than 8 hours">Más de 8 horas</option>
+                                <option value="Less than 5 hours">Menos de 7 horas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campos de antecedentes familiares y pensamientos suicidas -->
+                    <div class="campo">
+                        <label>¿Tienes antecedentes de familiares con enfermedades mentales?</label>
+                        <select class="selecter" name="family_history" required>
+                            <option value="" selected disabled>Seleccione una opción</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>¿Alguna vez ha tenido pensamientos suicidas?</label>
+                        <select class="selecter" name="suicidal_thoughts" required>
+                            <option value="" selected disabled>Seleccione una opción</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <!-- Contenedor de hábitos alimenticios y trabajo actual -->
+                    <div class="container-campo-dos">
+                        <div class="campo">
+                            <label>Hábitos Alimenticios:</label>
+                            <select class="selecter" name="dietary_habits" required>
+                                <option value="" selected disabled>Seleccione una opción</option>
+                                <option value="Others">Saludables</option>
+                                <option value="Moderate">Moderados</option>
+                                <option value="Unhealthy">Poco saludables</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label>¿Actualmente trabaja?</label>
+                            <select class="selecter" id="works" name="works" required>
+                                <option value="" selected disabled>Seleccione una opción</option>
+                                <option value="Yes">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campo de "Presión Laboral" que se muestra solo si el usuario selecciona "Sí" en el trabajo -->
+                    <div class="campo" style="display: none;" id="work_pressure_div">
+                        <label>Presión Laboral</label>
+                        <input class="input-text input" type="number" name="work_pressure" placeholder="1-10 (1: poca, 10: demasiada)" min="0" max="10" value="0" required>
+                    </div>
+
+                    <!-- Botón de envío del formulario -->
+                    <div class="alinear-derecha flex">
+                        <input class="boton w-sm-100 submit" type="submit" value="Realizar prueba">
+                    </div>
+
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>© Todos los derechos reservados Facultad de Ingeniería UNAM 2024</p>
+    </footer>
+</body>
+
+<!-- Inclusión de la librería SweetAlert2 para mostrar alertas personalizadas -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Script principal de la aplicación -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Crear un objeto con el mensaje de alerta que será mostrado -->
+<script>
+    var flashMessage = {{ get_flashed_messages() | tojson }};  <!-- Obtenemos el mensaje desde Flask -->
+</script>
+
+</html>
